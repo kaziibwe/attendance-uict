@@ -2,8 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,12 +35,5 @@ Route::group([
     Route::post('refreshAdmin', [AdminController::class, 'refreshAdmin'])->name('refreshAdmin');
 
 
-
-    Route::post('registerUser', [UserController::class,'registerUser'])->name('registerUser');
-    Route::post('loginUser', [UserController::class,'loginUser'])->name('loginUser');
-
-    Route::get('profileUser', [UserController::class,'profileUser'])->name('profileUser');
-
-    Route::post('logoutUser', [UserController::class,'logoutUser'])->name('logoutUser');
 
 });
