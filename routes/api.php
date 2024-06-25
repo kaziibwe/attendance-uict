@@ -56,6 +56,20 @@ Route::group([
 
 
 
+        // loginStaff
+        // login user
+        Route::post('loginStaff', [StaffController::class,'loginStaff'])->name('loginStaff');
+
+
+                // create the staff
+
+
+    Route::post('registerUser', [UserController::class,'registerUser'])->name('registerUser');
+    Route::post('loginUser', [UserController::class,'loginUser'])->name('loginUser');
+
+    Route::get('profileUser', [UserController::class,'profileUser'])->name('profileUser');
+
+    Route::post('logoutUser', [UserController::class,'logoutUser'])->name('logoutUser');
 
 
 
