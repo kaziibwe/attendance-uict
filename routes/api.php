@@ -35,5 +35,29 @@ Route::group([
     Route::post('refreshAdmin', [AdminController::class, 'refreshAdmin'])->name('refreshAdmin');
 
 
+    // crude for department
+    // api to create  department
+    Route::post('createDepartment', [DepartmentController::class,'createDepartment'])->name('createDepartment');
+
+    // get all departments
+    Route::get('getAllDepartments', [DepartmentController::class,'getAllDepartments'])->name('getAllDepartments');
+
+    // get single department
+    Route::get('getSingleDepartment/{id}', [DepartmentController::class,'getSingleDepartment'])->name('getSingleDepartment');
+
+    // update  a department
+    Route::patch('updateDepartment/{id}', [DepartmentController::class,'updateDepartment'])->name('updateDepartment');
+
+        // delete single department
+        Route::delete('deleteDepartment/{id}', [DepartmentController::class,'deleteDepartment'])->name('deleteDepartment');
+
+
+
+
+
+
+
+
+
 
 });
