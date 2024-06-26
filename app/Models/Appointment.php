@@ -13,4 +13,16 @@ class Appointment extends Model
         return $this->belongsTo(Department::class, 'user_id');
 
     }
+
+
+
+    protected $fillable = [
+        'user_id',
+        'name',
+        'email',
+        'descprition',
+        'starting_date',
+        'ending_date',
+    ];
+    public $timestamps = false;
 }

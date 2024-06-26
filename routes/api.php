@@ -4,8 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\DepartmentController;
+use App\Models\Appointment;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,41 +39,41 @@ Route::group([
 
     // crude for department
     // api to create  department
-    Route::post('createDepartment', [DepartmentController::class,'createDepartment'])->name('createDepartment');
+    Route::post('createDepartment', [DepartmentController::class, 'createDepartment'])->name('createDepartment');
 
     // get all departments
-    Route::get('getAllDepartments', [DepartmentController::class,'getAllDepartments'])->name('getAllDepartments');
+    Route::get('getAllDepartments', [DepartmentController::class, 'getAllDepartments'])->name('getAllDepartments');
 
     // get single department
-    Route::get('getSingleDepartment/{id}', [DepartmentController::class,'getSingleDepartment'])->name('getSingleDepartment');
+    Route::get('getSingleDepartment/{id}', [DepartmentController::class, 'getSingleDepartment'])->name('getSingleDepartment');
 
     // update  a department
-    Route::patch('updateDepartment/{id}', [DepartmentController::class,'updateDepartment'])->name('updateDepartment');
+    Route::patch('updateDepartment/{id}', [DepartmentController::class, 'updateDepartment'])->name('updateDepartment');
 
-        // delete single department
-        Route::delete('deleteDepartment/{id}', [DepartmentController::class,'deleteDepartment'])->name('deleteDepartment');
-
-
+    // delete single department
+    Route::delete('deleteDepartment/{id}', [DepartmentController::class, 'deleteDepartment'])->name('deleteDepartment');
 
 
 
+    // Route appointment
 
-        // loginStaff
-        // login user
-        Route::post('loginStaff', [StaffController::class,'loginStaff'])->name('loginStaff');
-
-
-                // create the staff
-
-
-    Route::post('registerUser', [UserController::class,'registerUser'])->name('registerUser');
-    Route::post('loginUser', [UserController::class,'loginUser'])->name('loginUser');
-
-    Route::get('profileUser', [UserController::class,'profileUser'])->name('profileUser');
-
-    Route::post('logoutUser', [UserController::class,'logoutUser'])->name('logoutUser');
+    Route::post('createAppointment', [AppointmentController::class, 'createAppointment'])->name('createAppointment');
 
 
 
 
+    // loginStaff
+    // login user
+    Route::post('loginStaff', [StaffController::class, 'loginStaff'])->name('loginStaff');
+
+
+    // create the staff
+
+
+    Route::post('registerUser', [UserController::class, 'registerUser'])->name('registerUser');
+    Route::post('loginUser', [UserController::class, 'loginUser'])->name('loginUser');
+
+    Route::get('profileUser', [UserController::class, 'profileUser'])->name('profileUser');
+
+    Route::post('logoutUser', [UserController::class, 'logoutUser'])->name('logoutUser');
 });
