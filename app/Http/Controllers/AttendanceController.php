@@ -98,4 +98,13 @@ class AttendanceController extends Controller
 
 
 
+    public function getAllAppointments()
+    {
+        $appointments =   Attendance::all();
+        return response()->json(['appointments' => $appointments],200);
+    }
+
+
+
+
 }
