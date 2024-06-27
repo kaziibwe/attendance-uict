@@ -56,9 +56,12 @@ Route::group([
 
 
     // Route appointment
-
+//  route for create appointment
     Route::post('createAppointment', [AppointmentController::class, 'createAppointment'])->name('createAppointment');
 
+    //route to update the apis
+
+    Route::patch('updateAppointment/{id}', [AppointmentController::class, 'updateAppointment'])->name('updateAppointment');
 
 
 

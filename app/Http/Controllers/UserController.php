@@ -146,7 +146,7 @@ protected function respondWithToken($token)
     public function getSingleUser($id){
          $user = User::find($id);
          if(!$user){
-            return response()->json(['message'=>'User Not Found']);
+            return response()->json(['message'=>'User Not Found'],422);
          }
          return response()->json(['user'=>$user]);
 

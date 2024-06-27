@@ -51,7 +51,7 @@ class DepartmentController extends Controller
         try {
             $user = Department::find($id);
             if (!$user) {
-                return response()->json(['message' => 'User Not Found']);
+                return response()->json(['message' => 'User Not Found'],401);
             }
             $formFields = $request->validate([
                 'name' => 'required',
@@ -82,14 +82,14 @@ class DepartmentController extends Controller
     public function getAllDepartments()
     {
         $users =   Department::all();
-        return response()->json(['users' => $users]);
+        return response()->json(['users' => $users],200);
     }
 
     public function getSingleDepartment($id)
     {
         $user = Department::find($id);
         if (!$user) {
-            return response()->json(['message' => 'User Not Found']);
+            return response()->json(['message' => 'User Not Found'],401);
         }
         return response()->json(['user' => $user]);
     }
@@ -103,7 +103,7 @@ class DepartmentController extends Controller
                 if (!$department) {
                     return response()->json([
                         'message' => 'department Not found'
-                    ], 404);
+                    ], 401);
                 }
                 $department->delete();
                 return response()->json([], 200);

@@ -23,6 +23,7 @@ class Appointment extends Model
         'descprition',
         'starting_date',
         'ending_date',
+        'extended_date',
     ];
     public $timestamps = false;
 }
