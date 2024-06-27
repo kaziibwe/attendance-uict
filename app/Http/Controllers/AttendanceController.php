@@ -116,5 +116,19 @@ class AttendanceController extends Controller
 
 
 
+    public function getAttendancesbyStuff($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json(['message' => 'user Not Found'], 401);
+        }
+        $appointments = Attendance::where('user_id', $id)->get();
+        //$Attendances = $user->Attendances()->get();
+        return response()->json([
+            'user' => $user,
+            'appointments' => $appointments
+        ]);
+    }
+
 
 }
