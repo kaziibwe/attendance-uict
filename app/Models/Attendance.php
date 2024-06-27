@@ -11,6 +11,13 @@ class Attendance extends Model
 
     public function user(){
         return $this->belongsTo(Department::class, 'user_id');
-
     }
+
+    protected $fillable = [
+        'user_id',
+        'status',
+        'singin',
+        'signout',
+    ];
+    public $timestamps = false;
 }

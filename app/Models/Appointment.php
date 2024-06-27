@@ -24,6 +24,11 @@ class Appointment extends Model
         'starting_date',
         'ending_date',
         'extended_date',
+
+        'user_id',
+        'status',
+        'singin',
+        'signout',
     ];
     public $timestamps = false;
 }

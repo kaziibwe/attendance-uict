@@ -81,17 +81,17 @@ class DepartmentController extends Controller
 
     public function getAllDepartments()
     {
-        $users =   Department::all();
-        return response()->json(['users' => $users],200);
+        $departments =   Department::all();
+        return response()->json(['departments' => $departments],200);
     }
 
     public function getSingleDepartment($id)
     {
-        $user = Department::find($id);
-        if (!$user) {
-            return response()->json(['message' => 'User Not Found'],401);
+        $department = Department::find($id);
+        if (!$department) {
+            return response()->json(['message' => 'department Not Found'],401);
         }
-        return response()->json(['user' => $user]);
+        return response()->json(['department' => $department]);
     }
 
 

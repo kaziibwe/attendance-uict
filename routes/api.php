@@ -1,13 +1,14 @@
 <?php
 
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DepartmentController;
-use App\Models\Appointment;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,13 +57,51 @@ Route::group([
 
 
     // Route appointment
-//  route for create appointment
+    //  route for create appointment
     Route::post('createAppointment', [AppointmentController::class, 'createAppointment'])->name('createAppointment');
+
+        //  get single user
+
+    Route::get('getSingleAppointment/{id}', [AppointmentController::class, 'getSingleAppointment'])->name('getSingleAppointment');
+
+    // get all appoints
+
+    Route::get('getAllAppointments', [AppointmentController::class, 'getAllAppointments'])->name('getAllAppointments');
+
+// get appoints by the user id
+Route::get('getAppointmentsbyStuff/{id}', [AppointmentController::class, 'getAppointmentsbyStuff'])->name('getAppointmentsbyStuff');
+
 
     //route to update the apis
 
     Route::patch('updateAppointment/{id}', [AppointmentController::class, 'updateAppointment'])->name('updateAppointment');
 
+
+
+    // Route appointment
+    //  route for create appointment
+    Route::post('createAttendance', [AttendanceController::class, 'createAttendance'])->name('createAttendance');
+
+     //  route for update appointment
+     Route::patch('updateAttendance/{id}', [AttendanceController::class, 'updateAttendance'])->name('updateAttendance');
+
+        //  route for get attendances
+        Route::get('getSingleAttendance/{id}', [AttendanceController::class, 'getSingleAttendance'])->name('getSingleAttendance');
+
+        // route to get attendances by the staff
+        Route::get('getAttendancesbyStuff/{id}', [AttendanceController::class, 'getAttendancesbyStuff'])->name('getAttendancesbyStuff');
+
+
+
+          //  route for update appointment
+          Route::get('getAllAppointments', [AttendanceController::class, 'getAllAppointments'])->name('getAllAppointments');
+
+
+
+
+    // Route appointment
+    //  route for create appointment
+    Route::post('createAppointment', [AppointmentController::class, 'createAppointment'])->name('createAppointment');
 
 
     // loginStaff
