@@ -105,6 +105,16 @@ class AttendanceController extends Controller
     }
 
 
+    public function getSingleAttendance($id)
+    {
+        $appointment = Attendance::find($id);
+        if (!$appointment) {
+            return response()->json(['message' => 'appointment Not Found'], 401);
+        }
+        return response()->json(['appointment' => $appointment]);
+    }
+
+
 
 
 }
