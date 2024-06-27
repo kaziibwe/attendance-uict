@@ -88,5 +88,36 @@ class AppointmentController extends Controller
 
 
 
+    public function getAllAppointments()
+    {
+        $appointments =   Appointment::all();
+        return response()->json(['appointments' => $appointments],200);
+    }
+
+
+    public function getSingleAppointment($id)
+    {
+        $appointment = Appointment::find($id);
+        if (!$appointment) {
+            return response()->json(['message' => 'appointment Not Found'],401);
+        }
+        return response()->json(['appointment' => $appointment]);
+    }
+
+
+
+    public function getAppointmentsbyStuff($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json(['message' => 'user Not Found'],401);
+        }
+        $appointments = Appointment::where('user_id',$id)->get();
+// ;        $appointments = $user->Appointments()->get();
+        return response()->json([
+            'user' => $user,
+            'appointments' => $appointments
+        ]);
+    }
 
 }
