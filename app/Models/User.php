@@ -34,6 +34,19 @@ class User extends Authenticatable implements JWTSubject
         'phone',
         'password',
 
+        'date_appointed',
+        'salary_scale',
+        'salary_amount',
+        'allowances',
+        'gross_pay',
+        'education',
+        'netpay',
+        'duty',
+        'first_appointment',
+        'date_first_appointment',
+        'appointment_staff',
+        'appointment_status',
+
     ];
     public $timestamps = false;
 
