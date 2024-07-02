@@ -9,6 +9,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\AppointmentController;
+use App\Models\Attendance;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,12 +82,17 @@ Route::get('getAppointmentsbyStuff/{id}', [AppointmentController::class, 'getApp
     // Route appointment
     //  route for create appointment
     Route::post('createAttendance', [AttendanceController::class, 'createAttendance'])->name('createAttendance');
+    //  get single user
+    Route::get('getAllAttendances', [AttendanceController::class, 'getAllAttendances']);
 
      //  route for update appointment
      Route::patch('updateAttendance/{id}', [AttendanceController::class, 'updateAttendance'])->name('updateAttendance');
 
         //  route for get attendances
         Route::get('getSingleAttendance/{id}', [AttendanceController::class, 'getSingleAttendance'])->name('getSingleAttendance');
+
+
+
 
         // route to get attendances by the staff
         Route::get('getAttendancesbyStuff/{id}', [AttendanceController::class, 'getAttendancesbyStuff'])->name('getAttendancesbyStuff');
@@ -101,12 +107,12 @@ Route::get('getAppointmentsbyStuff/{id}', [AppointmentController::class, 'getApp
 
     // Route appointment
     //  route for create appointment
-    Route::post('createAppointment', [AppointmentController::class, 'createAppointment'])->name('createAppointment');
+    // Route::post('createAppointment', [AppointmentController::class, 'createAppointment'])->name('createAppointment');
 
 
     // loginStaff
     // login user
-    Route::post('loginStaff', [StaffController::class, 'loginStaff'])->name('loginStaff');
+    // Route::post('loginStaff', [StaffController::class, 'loginStaff'])->name('loginStaff');
 
 
     // create the staff
@@ -117,5 +123,36 @@ Route::get('getAppointmentsbyStuff/{id}', [AppointmentController::class, 'getApp
 
     Route::get('profileUser', [UserController::class, 'profileUser'])->name('profileUser');
 
+
+
+
+
     Route::post('logoutUser', [UserController::class, 'logoutUser'])->name('logoutUser');
+
+      // read all staff
+    //   Route::get('getAllUser', [AttendanceController::class, 'getAllUser'])->name('getAllUser');
+
+      Route::get('getSingleUser/{id}', [UserController::class, 'getSingleUser'])->name('getSingleUser');
+
+    //   update password user or staff
+      Route::get('changePasswordUser/{id}', [UserController::class, 'changePasswordUser'])->name('changePasswordUser');
+
+
+      Route::patch('updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
+
+      Route::delete('deleteUser/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
+
+      Route::get('checkTodayAttendance/{id}', [AttendanceController::class, 'checkTodayAttendance'])->name('checkTodayAttendance');
+
+
+
+    //   Route::get('getAllAttendances', [AttendanceController::class, 'getAllAttendances']);
+    //   Route::get('getTodayAttendances', [AttendanceController::class, 'getTodayAttendances']);
+    //   Route::get('getLastWeekAttendances', [AttendanceController::class, 'getLastWeekAttendances']);
+    //   Route::get('getLastMonthAttendances', [AttendanceController::class, 'getLastMonthAttendances']);
+    //   Route::get('getLastYearAttendances', [AttendanceController::class, 'getLastYearAttendances']);
+
+
+
+
 });
